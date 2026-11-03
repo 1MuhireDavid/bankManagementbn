@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework.permissions import AllowAny
 
 urlpatterns = [
+    path('api/schema/', SpectacularAPIView.as_view(authentication_classes=[], permission_classes=[AllowAny]), name='schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema', authentication_classes=[], permission_classes=[AllowAny]), name='swagger-ui'),
     path('admin/', admin.site.urls),
-    path('api/wallets/', include('wallets.urls'))
+    path('api/users/', include('users.urls')),
+    path('api/wallet/', include('wallets.urls')),
+    path('api/wallets/', include('wallets.urls')),
 ]
