@@ -4,3 +4,5 @@ djangorestframework==3.18.3
 djangorestframework_simplejwt==5.5.1
 mysqlclient==2.3.0
 python-dotenv>=1.0,<2.0
+drf-spectacular[sidecar]==0.30.0
+drf-spectacular-sidecar==2026.10.1
